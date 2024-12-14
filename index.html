@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Opportunities</title>
+    <!-- Adding Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .internship-item {
+            background-color: #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .internship-item:hover {
+            background-color: #cbd5e0;
+        }
+
+        .internship-item a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 18px;
+            display: block;
+        }
+
+        .internship-item a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .internship-list {
+            margin-bottom: 20px;
+                max-height: 80vh;
+                /* Set the height you want */
+                overflow-y: auto;
+                /* Enables vertical scrolling */
+        }
+
+        #openLinksButton {
+            position: sticky;
+            top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 1vw;
+        }
+
+        /* Additional modern styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #7f5af0, #ff8e3c, #2cb67d, #7f5af0);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            cursor: none;
+            /* Hide default cursor */
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            color: #fff;
+            z-index: 10;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        /* Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: floatOrb 15s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-40px);
+            }
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: #ffffffaa;
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: #ff8e3caa;
+            top: 70%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .orb:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: #2cb67daa;
+            top: 40%;
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        .orb:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            background: #7f5af0aa;
+            top: 80%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        /* Cursor light effect */
+        .cursor-light {
+            position: fixed;
+            pointer-events: none;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(113, 161, 25, 0.5) 0%, rgba(172, 19, 172, .2) 70%);
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Orbs -->
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+
+    <h1>Software Engineering Internship Opportunities</h1>
+
+    <div class="container">
+        <button class="button" id="openLinksButton">Open Internship Links</button>
+        <!-- Displaying Internship Links -->
+        <div class="internship-list" id="internshipList"></div>
+
+        <!-- Button to open internship links -->
+    </div>
+
+    <!-- Cursor Light -->
+    <div class="cursor-light" id="cursorLight"></div>
+
+    <script>
+        // Internship list as a JavaScript array
+ const internshipList = ["https://boards.greenhouse.io/singlestore/jobs/6249890", "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Schaumburg-IL/Mobile-Development-Intern--Summer-2025-_R51669", "https://jobs.lever.co/palantir/cccfe1bd-f15b-4fe5-b044-c793e7961c1b/apply", "https://boards.greenhouse.io/bandwidth/jobs/6408768", "https://job-boards.greenhouse.io/intradiem/jobs/4408395006", "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/External_Rockwell_Automation/job/Eden-Prairie-Minnesota-United-States/Intern--Embedded-Software-Engineering_R24-6537-1", "https://jobs.lever.co/zoox/b5cfd6d5-2d3f-40b3-9bda-618e615d8162/apply", "https://www.sharkninja.com/careers/?gh_jid=4415285006", "https://amazon.jobs/en/jobs/2794071/2025-software-dev-engineer-intern-embedded-runtime-storage-system-performance-annapurna-ml", "https://job-boards.greenhouse.io/astranis/jobs/4414545006", "https://mksinst.wd1.myworkdayjobs.com/en-US/MKSCareersUniversity/job/Andover-MA/XMLNAME-2025-Summer-Fall-Undergraduate-Co-op---Software-Engineer_R11247", "https://jobs.ashbyhq.com/Talos-Trading/06a63b6b-818f-44ac-ad86-9139b09bc624/application", "https://jobs.lever.co/shieldai/dd28b76b-87ec-43b2-bccb-d249ff4e9b32/apply", "https://jobs.jobvite.com/splunk-careers/job/oTXtufwx?nl=1&nl=1&fr=false", "https://leidos.wd5.myworkdayjobs.com/External/job/6314-RemoteTeleworker-US/Software-Engineering-Intern_R-00149553", "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Chicago-IL/Software-Engineer-Intern---Summer-2025_R52003", "https://jobs.apple.com/en-us/details/200578409", "https://job-boards.greenhouse.io/verkada/jobs/4477801007", "https://activision.wd1.myworkdayjobs.com/Blizzard_External_Careers/job/Albany/Game-Production-Co-Op_R024242", "https://symbotic.wd1.myworkdayjobs.com/en-US/Symbotic/job/USA-Wilmington--MA---HQ/Intern---Front-End-Software-Engineer_R3927", "https://washpost.wd5.myworkdayjobs.com/washingtonpostcareers/job/DC-Washington-TWP-Headquarters/Summer-Intern--Android-Apps_JR-90275000", "https://job-boards.greenhouse.io/astranis/jobs/4400090006", "https://jobs.ashbyhq.com/Crusoe/2a6925c6-cf93-4e3c-862a-06e5814fecad/application", "https://boards.greenhouse.io/apptronik/jobs/5362238004", "https://activision.wd1.myworkdayjobs.com/External/job/Playa-Vista/XMLNAME-2025-US-Summer-Internship---Computer-Graphics_R023719", "https://citi.wd5.myworkdayjobs.com/en-US/2/job/Jacksonville-Florida-United-States/Technology-Software-Development--Summer-Analyst--Jacksonville-2025_24807199", "https://www.pinterestcareers.com/job-form?gh_jid=6319488", "https://job-boards.greenhouse.io/sigmacomputing/jobs/6086991003", "https://boards.greenhouse.io/embed/job_app?token=6266440", "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/External_Rockwell_Automation/job/Mayfield-Heights-Ohio-United-States/Intern--Software-Engineering_R24-5966-1", "https://sbdinc.wd1.myworkdayjobs.com/en-US/Stanley_Black_Decker_Career_Site/job/Towson-MD-United-States/Embedded-Software-Engineering-Intern--Summer-2025_REQ-1000031684", "https://jobs.lever.co/zoox/788507e0-0b87-4e44-bf01-84d3f9dd471c/apply", "https://jobs.apple.com/en-us/details/200573782", "https://boards.greenhouse.io/drweng/jobs/6071742", "https://jda.wd5.myworkdayjobs.com/en-US/JDA_Careers/job/Dallas/Full-Stack-Developer-Intern_243585-1", "https://jobs.lever.co/shieldai/88bde188-a407-4903-874f-dbb255100f3f/apply", "https://job-boards.greenhouse.io/astranis/jobs/4422551006", "https://jobs.ashbyhq.com/Cleric/0a2240fb-18b2-4e95-bccf-c8003d06252c/application", "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/External_Rockwell_Automation/job/Mequon-Wisconsin-United-States/Internship--Software-Engineering_R24-5251", "https://jobs.lever.co/bodo/f95f11b7-9089-4072-a217-473ad82b6e8f/apply", "https://jobs.lever.co/webfx/1032ba2b-a4fc-4625-83d5-34f43063de7b/apply", "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/External_Rockwell_Automation/job/Milwaukee-Wisconsin-United-States/Intern--Software-Engineering_R24-5216", "https://stryker.wd1.myworkdayjobs.com/StrykerCareers/job/Portage-Michigan/Summer-2025-Intern---Software-Engineering---Michigan_R527279", "https://jobs.lever.co/palantir/7d69cf8a-06fd-4f05-bd84-27149db29c4d/apply", "https://boards.greenhouse.io/bandwidth/jobs/6394965", "https://jobs.ashbyhq.com/suno/6237a7a4-2b5c-4f24-8616-1e2c437d4c2e/application", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Westlake-Village-CA/Firmware-Engineer-Intern---Bachelors_2401849", "https://symbotic.wd1.myworkdayjobs.com/en-US/Symbotic/job/USA-Wilmington--MA---HQ/Intern---Back-End-Software-Engineer_R3928", "https://caci.wd1.myworkdayjobs.com/External/job/US-VA-Ashburn/Software-Development-Intern---Summer-2025_304242-1", "https://jobs.ashbyhq.com/snowflake/ca0cea54-4c3d-4f41-ae88-bb92e3b7fbb6/application", "https://www.ixl.com/company/jobs?gh_jid=7535510002", "https://boards.greenhouse.io/embed/job_app?token=6273271003", "https://jda.wd5.myworkdayjobs.com/en-US/JDA_Careers/job/Dallas/Software-Engineering---Intern_243477-1", "https://jobs.smartrecruiters.com/ServiceNow/744000011666405", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---VA-Herndon/Engineering-Internship-Summer-2025_R161071", "https://salesforce.wd12.myworkdayjobs.com/en-us/External_Career_Site/job/Washington---Bellevue/Summer-2025-Intern---Database-Engineer_JR264518-2", "https://amazon.jobs/en/jobs/2794068/2025-software-dev-engineer-intern-compiler-annapurna-ml", "https://jobs.lever.co/zoox/548bdfae-9858-4b7b-b3e4-d71f3ac55fbc/apply", "https://jobs.lever.co/palantir/373eb939-6f57-4836-8479-be79a5e07249/apply", "https://careers.rivian.com/jobs/20004?lang=en-us&icims=1", "https://job-boards.greenhouse.io/point72/jobs/7665630002", "https://about.nextdoor.com/careers-list/?gh_jid=6202946", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---AL-Huntsville/XMLNAME-2025-Summer-Internship---Software-Development-for-Autonomous-Drone-Control_R161562", "https://jobs.lever.co/palantir/e0010393-c300-446f-bf67-fa2ef067f16f/apply", "https://careers.coalitioninc.com/job-posting/?gh_jid=4493650005", "https://amazon.jobs/en/jobs/2808730/software-development-engineer-intern-2025-canada", "https://badgermeter.wd5.myworkdayjobs.com/US_CareerSite/job/Milwaukee-WI/Software-Engineering-Intern_3515", "https://boards.greenhouse.io/noahmedical/jobs/4135743008", "https://boards.greenhouse.io/embed/job_app?token=5624713", "https://boards.greenhouse.io/testnisc/jobs/6452898", "https://careers.uipath.com/jobs/11731?lang=en-us&icims=1", "https://www.uber.com/global/en/careers/list/135752/", "https://jobs.lever.co/palantir/e27af7ab-41fc-40c9-b31d-02c6cb1c505c/apply", "https://wing.com/careers/7653910002?gh_jid=7653910002", "https://crowdstrike.wd5.myworkdayjobs.com/en-us/crowdstrikecareers/job/United-Kingdom---Remote/Software-Engineer-Intern---Intelligence-Automation--Remote-_R21235", "https://boards.greenhouse.io/testnisc/jobs/6452893", "https://www.marketaxess.com/careers/current-openings/detail/jobs/4412656006?gh_jid=4412656006", "https://echo.wd1.myworkdayjobs.com/en-US/Echo_Logistics/job/Remote/Software-Engineering-Intern--Chicago_R3239", "https://salesforce.wd12.myworkdayjobs.com/en-us/External_Career_Site/job/California---Palo-Alto/Summer-2025---AI-Software-Engineer-Intern_JR267142-2", "https://nordsonhcm.wd5.myworkdayjobs.com/en-US/nordsoncareers/job/USA---Ohio---Amherst/Intern--Enterprise-Architecture-Analyst-Intern-_REQ41180", "https://wing.com/careers/7653909002?gh_jid=7653909002", "https://www.skydio.com/jobs/6220730003?gh_jid=6220730003", "https://avav.wd1.myworkdayjobs.com/en-US/avav/job/Simi-Valley-CA/XMLNAME-2025-Summer-Internship---Software-Engineering_4871", "https://adobe.wd5.myworkdayjobs.com/external_experienced/job/San-Jose/XMLNAME-2025-Intern---Software-Engineer_R147746", "https://jda.wd5.myworkdayjobs.com/en-US/JDA_Careers/job/Dallas/Intern_243526-1", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Application-Engineering-Intern---Masters_2401785", "https://jobs.lever.co/palantir/a483f41b-0da9-42ea-8ed6-cbf6eb93cc6d/apply", "https://lumentum.wd5.myworkdayjobs.com/en-US/LITE/job/Canada---Ottawa-Bill-Leathem/Software-Automation-Engineer-Co-op-Intern_2024951", "https://job-boards.greenhouse.io/verkada/jobs/4477721007", "https://plexus.wd5.myworkdayjobs.com/en-US/Plexus_Careers/job/Neenah-WI/Intern---Product---Summer-2025_R029837-1", "https://jobs.lever.co/ethereumfoundation/4881baf8-f006-4885-aaac-8bd5c9ca836a/apply", "https://axiomspace.wd5.myworkdayjobs.com/External_Career_Site/job/EVA-Software-Engineering-Intern--Summer-2025-_JR100060", "https://www.okta.com/company/careers/opportunity/6246072?gh_jid=6246072", "https://jobs.lever.co/immuta/bc8de9df-4ae8-450a-b715-58adeea4789a/apply", "https://job-boards.greenhouse.io/virtu/jobs/7520504002", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---CO-Colorado-Springs/Space-Ops-Software-Engineer-Intern--Summer-2025-_R160742", "https://www.uber.com/global/en/careers/list/135639/", "https://jobs.lever.co/shieldai/da49232a-dc28-4085-a9b9-9059e643bc7f/apply", "https://www.modmed.com/company/careers/?gh_jid=7677145002", "https://boards.greenhouse.io/gleanwork/jobs/4463752005", "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Champaign-IL-IL169/Software-Engineer-Summer-2025-Internship--UIUC-Research-Park-_R50649", "https://nvidia.wd5.myworkdayjobs.com/en-us/nvidiaexternalcareersite/job/US-CA-Santa-Clara/NVIDIA-2025-Internships--Systems-Software-Engineering_JR1986534", "https://seatgeek.com/jobs/6295827?gh_jid=6295827", "https://jobs.smartrecruiters.com/Solidigm/744000022574662", "https://nvidia.wd5.myworkdayjobs.com/en-us/nvidiaexternalcareersite/job/US-CA-Santa-Clara/NVIDIA-2025-Internships--Software-Engineering_JR1986535", "https://jobs.lever.co/palantir/2fb19022-bb65-4af8-b6fa-31beb345c140/apply", "https://boards.greenhouse.io/zscaler/jobs/4595421007", "https://mksinst.wd1.myworkdayjobs.com/en-US/MKSCareersUniversity/job/North-Logan-UT/XMLNAME-2025-Summer-Software-Engineer-Undergraduate-Intern-Co-op_R11633", "https://flir.wd1.myworkdayjobs.com/en-US/flircareers/job/US---Chestnut-Ridge-NY/Software-Engineer-Co-op_REQ23390", "https://kla.wd1.myworkdayjobs.com/en-US/Search/job/Milpitas-CA/HPC-Product-Engineer-Intern_2426291-1", "https://boards.greenhouse.io/cloudflare/jobs/6243679", "https://wing.com/careers/7653734002?gh_jid=7653734002", "https://job-boards.greenhouse.io/futronics/jobs/5321643003", "https://boards.greenhouse.io/zscaler/jobs/4595408007", "https://nuro.ai/careersitem?gh_jid=6450002", "https://twitter.wd5.myworkdayjobs.com/en-US/X/job/Palo-Alto-CA/Engineering-Intern_R100794", "https://job-boards.greenhouse.io/twosixtechnologies/jobs/5360060004", "https://boards.greenhouse.io/embed/job_app?token=6165570", "https://job-boards.greenhouse.io/harbingermotors/jobs/4589740007", "https://job-boards.greenhouse.io/twilio/jobs/6330375", "https://rb.wd5.myworkdayjobs.com/en-US/FRS/job/Dallas-TX/Summer-2025-Intern---IT-S-R-Enablement_R-0000026688", "https://jobs.ashbyhq.com/d-Matrix/458a7ddb-1c65-4255-a84f-514d540b19c6/application", "https://boards.greenhouse.io/wehrtyou/jobs/6139035", "https://job-boards.greenhouse.io/whatnot/jobs/5247639004", "https://trimble.wd1.myworkdayjobs.com/en-US/TrimbleCareers/job/US---CO-Westminster/Software-Engineering-Intern_R45675", "https://jobs.apple.com/en-us/details/200554359", "https://jobs.apple.com/en-us/details/200580247", "https://caci.wd1.myworkdayjobs.com/External/job/US-VA-Sterling/Summer-Internship-2025---MSU_302491", "https://c3.ai/job-description/7575558002?gh_jid=7575558002", "https://jobs.ashbyhq.com/Kognitos/d63ef3cf-ea29-4259-af85-dd8def262215/application", "https://amazon.jobs/en/jobs/2770360/neuron-compiler-software-engineer-intern-annapurna-ml", "https://alcon.wd5.myworkdayjobs.com/careers_alcon/job/Lake-Forest-California/Summer-2025---R-D-Surgical-Software-Engineering-Intern_R-2024-36618", "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/External_Rockwell_Automation/job/Mayfield-Heights-Ohio-United-States/Co-op--Software-Engineering_R24-5168-1", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---CO-Colorado-Springs/Space-Ops-Software-Engineer-Intern--Summer-2025-_R160745", "https://jobs.lever.co/CesiumAstro/b98dfc8d-5c28-449b-b5fd-62cfa34c1230/apply", "https://jobs.lever.co/teleo/63fe96ee-74dc-41eb-80bc-6f80133c9ffa/apply", "https://jobs.ashbyhq.com/snowflake/152b293d-ec65-4862-8957-7f50089728ac/application", "https://jobs.lever.co/nimblerx/50238c70-4ff2-4166-8149-afb233bde2ca/apply", "https://jobs.lever.co/pison/3ca2210d-2b4b-445d-9077-f97127e24b2d/apply", "https://gilead.wd1.myworkdayjobs.com/gileadcareers/job/United-States---North-Carolina---Raleigh/Intern---IT--Software-Engineer_R0042297", "https://washpost.wd5.myworkdayjobs.com/washingtonpostcareers/job/DC-Washington-TWP-Headquarters/Summer-Intern--Subscriptions-Engineer_JR-90274966", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Ottawa-Canada/Firmware-Engineer-Intern---Bachelors_2401848", "https://jobs.apple.com/en-us/details/200579813", "https://boards.greenhouse.io/purestorage/jobs/6280293", "https://boards.greenhouse.io/signifyd95/jobs/6454192", "https://job-boards.greenhouse.io/willowtree/jobs/7602774002", "https://jobs.smartrecruiters.com/WesternDigital/744000031407755", "https://udig.com/careers/job-listing/?gh_jid=6113363003", "https://boards.greenhouse.io/braze/jobs/6268366", "https://www.tanium.com/careers/6187797?gh_jid=6187797", "https://jobs.lever.co/palantir/76a60923-bb49-40f5-b061-7c7eb1299602/apply", "https://jobs.apple.com/en-us/details/200580016", "https://jobs.lever.co/weride/d935a87c-c332-4a6f-bab8-86fc41910b67/apply", "https://cerence.wd5.myworkdayjobs.com/Cerence/job/Montreal/XMLNAME--JANVIER-2025-JANUARY-2025--Dveloppeur-logiciel--Stagiaire----Software-Developer-Intern_R0005459", "https://symphony.com/company/apply?gh_jid=6283242", "https://www.uber.com/global/en/careers/list/135655/", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Application-Engineering-Intern---Masters_2401786", "https://www.modmed.com/company/careers/?gh_jid=7677071002", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---VA-Fredericksburg/Computer-Engineer-Software-Engineer-Internship--Summer-2025-_R161603", "https://boards.greenhouse.io/bandwidth/jobs/6397066", "https://plexus.wd5.myworkdayjobs.com/en-US/Plexus_Careers/job/Neenah-WI/Intern---Product-Engineer---Summer-2025_R030786-1", "https://boards.greenhouse.io/fetchrewards/jobs/6256428003", "https://xylem.wd5.myworkdayjobs.com/en-US/xylem-careers/job/Boise---Emerald-Street/Software-Engineering-Intern_R39346", "https://jobs.lever.co/SimbeRobotics/b202c6b5-0ce6-442f-82b2-9e801c92f371/apply", "https://www.ixl.com/company/jobs?gh_jid=7535493002", "https://job-boards.greenhouse.io/humane/jobs/5323827004", "https://jobs.jobvite.com/splunk-careers/job/oosPufwT?nl=1&nl=1&fr=false", "https://job-boards.greenhouse.io/kargo/jobs/5217421004", "https://activision.wd1.myworkdayjobs.com/Blizzard_External_Careers/job/Albany---Blizzard---Watervliet-Shaker-Road/Game-Engineering-Co-Op_R024239", "https://jobs.apple.com/en-us/details/200576866", "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/California-Southern-US-Offsite/Model-Developer-Co-Op---Spring-2025_R52243", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---CO-Colorado-Springs/Space-Ops-Software-Engineer-Intern--Summer-2025-_R160748", "https://cadence.wd1.myworkdayjobs.com/en-US/External_Careers/job/SAN-JOSE/WFO-Application-Engineer-Intern_R47392-2", "https://job-boards.greenhouse.io/point72/jobs/7297666002", "https://boards.greenhouse.io/neuralink/jobs/5469298003", "https://www.modmed.com/company/careers/?gh_jid=7687401002", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---CO-Colorado-Springs/Space-Ops-Software-Engineer-Intern--Summer-2025-_R160740", "https://job-boards.greenhouse.io/scaleai/jobs/4462132005", "https://job-boards.greenhouse.io/intradiem/jobs/4409423006", "https://githubinc.jibeapply.com/jobs/3569?lang=en-us&icims=1", "https://jobs.lever.co/shieldai/138de3dc-2d64-433f-b4ce-eaf6e19cea8f/apply", "https://hcsc.wd1.myworkdayjobs.com/en-US/HCSC_External/job/IL---Chicago/University-Relations---Associate-Automation-Intern_R0042314", "https://nvidia.wd5.myworkdayjobs.com/en-us/nvidiaexternalcareersite/job/UK-Cambridge/CPU-Compiler-Intern---2025_JR1990154", "https://oshkoshcorporation.wd5.myworkdayjobs.com/Oshkosh/job/Oshkosh-Wisconsin-United-States/Computer-Software-Engineering-Intern--Summer-2025-_R32419", "https://jobs.ashbyhq.com/mach/ae1694b8-509d-4ce3-84eb-0a4ccab4870e/application", "https://boards.greenhouse.io/docugami/jobs/4014838003", "https://app.careerpuck.com/job-board/lyft/job/7629311002?gh_jid=7629311002", "https://jobs.lever.co/wisk/5721af22-b096-47b1-937e-e282bee714fb/apply", "https://amazon.jobs/en/jobs/2798104/software-dev-engineer-intern-2025-automated-reasoning", "https://job-boards.greenhouse.io/astranis/jobs/4408512006", "https://syska.com/join-us/job_application/?gh_jid=6395698", "https://autodesk.wd1.myworkdayjobs.com/en-US/uni/job/Birmingham-GBR/Intern--Software-Engineer--starting-Summer-2025-_24WD79905", "https://app.careerpuck.com/job-board/lyft/job/7629317002?gh_jid=7629317002", "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Plantation-FL/Software-Engineer-Intern---Summer-2025_R50157", "https://app.careerpuck.com/job-board/lyft/job/7619583002?gh_jid=7619583002", "https://www.marketaxess.com/careers/current-openings/detail/jobs/4412658006?gh_jid=4412658006", "https://symbotic.wd1.myworkdayjobs.com/en-US/Symbotic/job/USA-Wilmington--MA---HQ/Intern---Software-Engineer--Data-Services_R4006-1", "https://www.modmed.com/company/careers/?gh_jid=7683317002", "https://jobs.lever.co/viget/a4b008a5-eaee-40ab-9458-bff4b796b401/apply", "https://jobs.ashbyhq.com/d-Matrix/098e42ca-a368-49fe-87b9-7d61a9150f4b/application", "https://zoll.wd5.myworkdayjobs.com/en-US/ZOLLMedicalCorp/job/Chelmsford-MA/Software-Co-op_R13748", "https://careers.rivian.com/jobs/20005?lang=en-us&icims=1", "https://boards.greenhouse.io/drweng/jobs/6000871", "https://jobs.lever.co/SymmetrySystems/d50dc474-987d-40c7-956c-7646239b1101/apply", "https://app.careerpuck.com/job-board/lyft/job/7612143002?gh_jid=7612143002", "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/External_Rockwell_Automation/job/Milwaukee-Wisconsin-United-States/Co-op--Firmware-Engineering_R24-5337-1", "https://rakuten.wd1.myworkdayjobs.com/en-US/RakutenAmericas/job/Seattle-Washington/Co-Op--AI-Engineering_1021158", "https://citi.wd5.myworkdayjobs.com/en-US/2/job/Mississauga-Ontario-Canada/Technology--Software-Development--Summer-Analyst--Mississauga-2025_24808852", "https://boards.greenhouse.io/bandwidth/jobs/6408764", "https://job-boards.greenhouse.io/twitch/jobs/7699674002", "https://jobs.lever.co/shieldai/ff659629-7332-417a-bfc8-ad77cf844004/apply", "https://wing.com/careers/7654026002?gh_jid=7654026002", "https://jobs.apple.com/en-us/details/200577758", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Field-Application-Engineering-Intern---Bachelor-s-degree_2401847", "https://boards.greenhouse.io/cloudflare/jobs/6342326", "https://jobs.lever.co/palantir/7f744341-9e34-44e8-915f-4f083a0c0d30/apply", "https://boards.greenhouse.io/embed/job_app?token=5317304003", "https://amazon.jobs/en/jobs/2808739/software-development-engineer-internship-2025-us", "https://jobs.ashbyhq.com/ramp/16ebfcfc-467b-40e5-b23e-a4d95db05539/application", "https://plexus.wd5.myworkdayjobs.com/en-US/Plexus_Careers/job/Raleigh-NC/Intern---Software-Engineer---Fall-2025_R030243", "https://jobs.ashbyhq.com/Talos-Trading/ca1ac0ab-12a7-44ef-8ede-344fe0d838b4/application", "https://job-boards.greenhouse.io/truveta/jobs/5306101004", "https://amat.wd1.myworkdayjobs.com/en-US/External/job/Santa-ClaraCA/XMLNAME-2025-Summer-Intern---Software-Engineer--Bachelor-s-Degree-_R2418965", "https://careers.rivian.com/jobs/20003?lang=en-us&icims=1", "https://boards.greenhouse.io/testnisc/jobs/6451288", "https://job-boards.greenhouse.io/verkada/jobs/4477761007", "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Spring-Texas-United-States-of-America/Workforce-Services-and-Solutions-Technical-Internship_3141435-1", "https://matroid.breezy.hr/p/79e27f665d2b/apply", "https://citi.wd5.myworkdayjobs.com/en-US/2/job/New-York-New-York-United-States/Technology--Software-Development--Summer-Analyst--New-York-City--Jersey-City-2025_24808457", "https://job-boards.greenhouse.io/snackpasspt/jobs/5343803004", "https://www.cockroachlabs.com/careers/job/?gh_jid=6291435", "https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Edinburgh/XMLNAME-2025-Intern---Engineering_R148131-1", "https://optiver.com/working-at-optiver/career-opportunities/7498434002/?gh_jid=7498434002", "https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/job/London-United-Kingdom/Broadcast-Technology-and-Operations-Internship_10100303", "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Vancouver-Washington-United-States-of-America/Imaging-and-Print-Software-Internship_3141394", "https://job-boards.greenhouse.io/gardacp/jobs/4445441004", "https://crowdstrike.wd5.myworkdayjobs.com/en-us/crowdstrikecareers/job/USA---Remote/Software-Engineer-Intern---Summer-2025--Remote--US--CAN-_R21100", "https://job-boards.greenhouse.io/twitch/jobs/7682566002", "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Spring-Texas-United-States-of-America/Workforce-Services-and-Solutions-Software-Internship_3141434-1", "https://jobs.lever.co/pison/17d1b96d-eee2-4825-9c4c-6acb95a550bd/apply", "https://amazon.jobs/en/jobs/2821518/2025-software-development-engineer-intern-embedded-development", "https://boards.greenhouse.io/embed/job_app?token=5997801003", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Application-Engineering-Intern---Masters_2401787", "https://job-boards.greenhouse.io/verkada/jobs/4538383007", "https://harriscomputer.wd3.myworkdayjobs.com/en-US/1/job/Office---Atlanta/Implementation-Analyst-Intern_R0027575", "https://boards.greenhouse.io/singlestore/jobs/6249895", "https://optiver.com/working-at-optiver/career-opportunities/7325586002/?gh_jid=7325586002", "https://boards.greenhouse.io/bandwidth/jobs/6394961", "https://job-boards.greenhouse.io/verkada/jobs/4526632007", "https://jobs.lever.co/CesiumAstro/8f855c8e-ba44-4d3c-b2ea-1dbc87920887/apply", "https://allegion.wd5.myworkdayjobs.com/careers/job/Indianapolis-IN---Hague-Rd/Firmware-Engineer---Summer-Intern_JR30269", "https://job-boards.greenhouse.io/rackner/jobs/4323518005", "https://boards.greenhouse.io/vectranetworks/jobs/6142052", "https://jobs.lever.co/palantir/f17e98d0-046a-4e6e-9d65-ed0b12dd0ff7/apply", "https://boards.greenhouse.io/scm/jobs/721888", "https://www.mlb.com/careers/opportunities?gh_jid=6367670", "https://boards.greenhouse.io/bandwidth/jobs/6418460", "https://boards.greenhouse.io/spacex/jobs/7623213002", "https://amazon.jobs/en/jobs/2772291/2025-software-dev-engineer-intern-uk", "https://jobs.lever.co/palantir/26e23f5d-083b-45aa-b223-1a6e43d960bf/apply", "https://jobs.lever.co/storyprotocol/daf2a96f-4213-4507-a72d-9081733749b8/apply", "https://job-boards.greenhouse.io/astranis/jobs/4404612006", "https://symbotic.wd1.myworkdayjobs.com/en-US/Symbotic/job/USA-Wilmington--MA---HQ/Intern---Configuration_R4012", "https://jobs.apple.com/en-us/details/200575269", "https://jobs.jobvite.com/splunk-careers/job/oLTEufww?nl=1&nl=1&fr=false", "https://boards.greenhouse.io/dvtrading/jobs/4443921005", "https://jobs.lever.co/pison/469a672e-4f79-415c-aecb-1f44fca25260/apply", "https://app.careerpuck.com/job-board/lyft/job/7608809002?gh_jid=7608809002", "https://axiomspace.wd5.myworkdayjobs.com/External_Career_Site/job/Software-Application-Engineering-Intern--Summer-2025-_JR100055-1", "https://boards.greenhouse.io/embed/job_app?token=6201998", "https://boards.greenhouse.io/bandwidth/jobs/6399234", "https://job-boards.greenhouse.io/point72/jobs/7609197002", "https://job-boards.greenhouse.io/verkada/jobs/4483295007", "https://washpost.wd5.myworkdayjobs.com/washingtonpostcareers/job/DC-Washington-TWP-Headquarters/Summer-Intern--Creator-Experience_JR-90274998", "https://www.skydio.com/jobs/6220824003?gh_jid=6220824003", "https://www.wayfair.com/careers/jobs/7630459002?gh_jid=7630459002", "https://jobs.smartrecruiters.com/Visa/744000016088096", "https://caci.wd1.myworkdayjobs.com/External/job/US-VA-King-George/Application-Developer-Intern---Summer-2025_302154-1", "https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-California-Santa-Clara/Undergraduate-Intern-Software-Engineer_JR0268959", "https://job-boards.greenhouse.io/astranis/jobs/4394953006", "https://www.affinipay.com/other-job-descriptions/?gh_jid=4413027006", "https://jobs.ashbyhq.com/gecko-robotics/23c70fb7-0cf2-4d16-b081-aa2286f09c53/application", "https://jobs.ashbyhq.com/Kognitos/bcf51e9a-b384-4bbf-9d4c-eb6d2f233928/application", "https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/US-MA-Wilmington/Embedded-Software-Engineering-Intern_R243664", "https://ninjatrader.com/careers/internships/?gh_jid=4403107006", "https://cadence.wd1.myworkdayjobs.com/en-US/External_Careers/job/SAN-JOSE/Software-Intern_R48438", "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Chicago-IL/Software-Developer--Systems---Solutions---Summer-2025-Internship_R51784", "https://expedia.wd5.myworkdayjobs.com/en-US/private/job/Washington---Seattle-Campus/Technical-Program-Management-Intern---2025---Seattle--Austin--Chicago_R-91181", "https://job-boards.greenhouse.io/schonfeld/jobs/6437419", "https://job-boards.greenhouse.io/astranis/jobs/4400091006", "https://jobs.lever.co/zoox/04c16c10-a6e9-4281-9a68-81e8c73b8057/apply", "https://stripe.com/jobs/search?gh_jid=6142753", "https://otppb.wd3.myworkdayjobs.com/OntarioTeachers_Careers/job/Toronto-Canada/Intern---Product-Engineering--Summer-2025---16-months-_5943", "https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/United-States-Ohio-Cincinnati/XMLNAME-2025---Cyber-Software-Engineer-Intern---Cincinnati-OH_R10173772-1", "https://job-boards.greenhouse.io/intradiem/jobs/4409590006", "https://nordsonhcm.wd5.myworkdayjobs.com/en-US/nordsoncareers/job/USA---Rhode-Island---East-Providence/Intern--Software-Engineering-_REQ42119", "https://amazon.jobs/en/jobs/2850218/system-development-engineer-internship-2025-can", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Product-Engineer-Intern---Bachelors_2401896", "https://boards.greenhouse.io/qumulo/jobs/6252299", "https://jobs.lever.co/wisk/692c45f9-d592-4ad1-a099-5e7123f0c225/apply", "https://amazon.jobs/en/jobs/2822132/co-op-software-development-engineer-2025-us", "https://job-boards.greenhouse.io/twosixtechnologies/jobs/5338690004", "https://boards.greenhouse.io/bandwidth/jobs/6395037", "https://adobe.wd5.myworkdayjobs.com/external_experienced/job/San-Jose/XMLNAME-2025-Intern---Engineer-Architect_R148750", "https://activision.wd1.myworkdayjobs.com/External/job/Irvine---Blizzard---Blizzard-Way/XMLNAME-2025-US-Summer-Internship---Software-Engineering_R023721", "https://jobs.lever.co/ambrook/df4de9bc-5786-40c5-9055-1cfcaa93a236/apply", "https://jobs.ashbyhq.com/ramp/bbac1615-acf4-4d27-9100-47079ab35be5/application", "https://autodesk.wd1.myworkdayjobs.com/Ext/job/Montreal-QC-CAN/Stagire-en-dveloppement-logiciels--Intern--Software-Developer_24WD83700-1", "https://boards.greenhouse.io/bandwidth/jobs/6394502", "https://careers.coalitioninc.com/job-posting/?gh_jid=4493652005", "https://jda.wd5.myworkdayjobs.com/en-US/JDA_Careers/job/Dallas/Software-Engineering-Intern_243645-1", "https://careers.formlabs.com/job/6236789/apply/?gh_jid=6236789", "https://amazon.jobs/en/jobs/2852336/sde-intern-summer", "https://boards.greenhouse.io/spacex/jobs/7623212002", "https://vermeer.wd5.myworkdayjobs.com/en-US/externalcareersite/job/Pella-Iowa-USA---Plant-3-Segment-Office/Electrical-Engineer-Intern_REQ-18637", "https://adobe.wd5.myworkdayjobs.com/external_experienced/job/New-York/XMLNAME-2025-Intern---Enterprise-Architecture-Analyst_R150709", "https://githubinc.jibeapply.com/jobs/3849?lang=en-us&icims=1", "https://activision.wd1.myworkdayjobs.com/External/job/Carlsbad---Activision---High-Moon/XMLNAME-2025-US-Summer-Internship---Game-Engineering_R023720-1", "https://jobs.lever.co/wisk/55dbe938-1ca9-4f9f-afb3-a29dd65892b3/apply", "https://jobs.ashbyhq.com/Kognitos/994c4cf7-ba32-42ce-99bc-0212cead2acb/application", "https://citi.wd5.myworkdayjobs.com/en-US/2/job/Irving-Texas-United-States/Technology---Software-Development--Summer-Analyst--Irving-2025_24807303", "https://allegion.wd5.myworkdayjobs.com/careers/job/Indianapolis-IN---Tobey-Dr/Digital-Manufacturing-Intern_JR30948", "https://job-boards.greenhouse.io/gardacp/jobs/4174194004", "https://job-boards.greenhouse.io/moloco/jobs/6101745003", "https://drivetime.wd1.myworkdayjobs.com/DriveTime/job/1720-W-Rio-Salado-Pkwy-Tempe-AZ-85281/Software-Engineering-Intern--Summer-2025-_R9725", "https://boards.greenhouse.io/pavilion/jobs/4498945005", "https://job-boards.greenhouse.io/ampsortation/jobs/6266041003", "https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0/apply", "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Chicago-IL/Google-Applications-Developer-Internship--Summer-2025-_R49034", "https://amazon.jobs/en/jobs/2838010/2025-software-dev-engineer-intern-uk-12-month-programme", "https://chamberlain.wd1.myworkdayjobs.com/Chamberlain_Group/job/Oak-Brook-IL/Intern--myQ-Middleware--Summer-2025-_JR27801", "https://job-boards.greenhouse.io/astranis/jobs/4394960006", "https://jobs.lever.co/viget/7ed6e70b-c6a1-4f51-8db0-940d7b5aa291/apply", "https://www.modmed.com/company/careers/?gh_jid=7668835002", "https://jobs.lever.co/zoox/67a37ec9-2df6-449e-9207-5e2822830614/apply", "https://job-boards.greenhouse.io/truveta/jobs/5309090004", "https://job-boards.greenhouse.io/point72/jobs/7297613002", "https://jobs.ashbyhq.com/ramp/0f1c331d-21b6-44fb-a326-5357d6e30188/application", "https://wing.com/careers/7654023002?gh_jid=7654023002", "https://jobs.ashbyhq.com/Kognitos/0494f0ce-1019-469b-bd38-73775d108a8e/application", "https://matroid.breezy.hr/p/3ccdad20c182/apply", "https://jobs.smartrecruiters.com/Solidigm/744000025560886", "https://jobs.smartrecruiters.com/Visa/744000031496075", "https://jobs.lever.co/intelliware/24345432-7189-4849-a389-3bad4abde843/apply", "https://boards.greenhouse.io/dvtrading/jobs/4489678005", "https://jobs.lever.co/palantir/e6ff8bf2-135e-474d-ad37-24f490ae1dd2/apply", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---CO-Colorado-Springs/Software-Engineer-Intern-Summer-2025_R160866", "https://boards.greenhouse.io/testnisc/jobs/6451291", "https://parsons.wd5.myworkdayjobs.com/en-US/search/job/US---VA-Centreville/Engineering-Co-Op-Intern-Fall-2024---TS-or-higher-cleared_R157628", "https://jobs.lever.co/palantir/8bcf4f33-0a79-4248-bbfd-49ac4be9dd8e/apply", "https://boards.greenhouse.io/ascendanalytics/jobs/4500201005", "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Software-Engineer-Intern---Bachelor-s-Master-s-degree_2402130"];
+        function extractHostname(url) {
+            try {
+                const { hostname } = new URL(url); // Parse URL and get hostname
+                return hostname;
+            } catch (error) {
+                console.error(`Error parsing URL "${url}":`, error);
+                return "Invalid URL";
+            }
+        }
+
+        // Function to display internship links dynamically
+        function displayInternships() {
+            const internshipListContainer = document.getElementById('internshipList');
+            internshipListContainer.innerHTML = ''; // Clear previous content
+
+            internshipList.forEach((internship) => {
+                // Create a new div for each internship
+                const internshipDiv = document.createElement('div');
+                internshipDiv.classList.add('internship-item');
+                internshipDiv.innerHTML = `
+                    <a href="${internship}" target="_blank">${extractHostname(internship)}</a>
+                `;
+                internshipListContainer.appendChild(internshipDiv);
+            });
+        }
+
+        // Function to open all internship links in new tabs with a 1-second delay
+        function openLinksInNewTabs() {
+            let index = 0;
+            const intervalId = setInterval(() => {
+                if (index < internshipList.length) {
+                    window.open(internshipList[index], '_blank');
+                    index++;
+                } else {
+                    clearInterval(intervalId); // Stop after opening all links
+                }
+            }, 1000); // 1000 milliseconds = 1 second
+        }
+
+        // Display the internships when the page loads
+        displayInternships();
+
+        // Add event listener to the button
+        const openLinksButton = document.getElementById('openLinksButton');
+        openLinksButton.addEventListener('click', openLinksInNewTabs);
+
+        // Cursor light effect
+        const cursorLight = document.getElementById('cursorLight');
+        document.addEventListener('mousemove', (e) => {
+            cursorLight.style.left = e.clientX + 'px';
+            cursorLight.style.top = e.clientY + 'px';
+        });
+    </script>
+</body>
+
+</html>
